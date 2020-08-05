@@ -72,3 +72,26 @@ let inverseContentParagraph = inverseContent.querySelector(".text-content p");
 document.addEventListener("keydown", function() {
     inverseContentParagraph.style.color = "red";
 })
+
+// Nesting Similar Events
+let paragraphIntro = document.querySelector(".intro p")
+let headerIntro = document.querySelector(".intro")
+
+//paragraphIntro.setAttribute("onclick", "alert('p')");
+//headerIntro.setAttribute("onclick", "alert('header')");
+
+paragraphIntro.addEventListener("click", function(event) {
+    alert('p');
+    event.stopPropagation();
+})
+
+headerIntro.addEventListener("click", function(event) {
+    alert('header');
+})
+
+
+// Prevent Default
+document.querySelector('a').addEventListener('click', event => {
+    console.log("Everything changed when the Fire Nation attacked.");
+    event.preventDefault()
+})
